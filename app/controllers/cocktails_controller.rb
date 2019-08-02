@@ -15,9 +15,13 @@ class CocktailsController < ApplicationController
   end
 #  
   def create
+    
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.save
-    redirect_to cocktail_path(@cocktail)
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render "new"
+    end
   end
 
 # Looks for the row in the Cocktails table that matches the id of the current object being passed. Sets the @Cocktail variable to that object.
