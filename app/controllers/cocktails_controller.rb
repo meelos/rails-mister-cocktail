@@ -32,9 +32,8 @@ class CocktailsController < ApplicationController
     redirect_to cocktail_path(@cocktail)
   end
 
-  def destroy
-
     # Looks for the row in the Cocktails table that matches the id of the current object being passed. Sets the @Cocktail variable to that object. Destroys the object.
+  def destroy
     @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy()
   end
